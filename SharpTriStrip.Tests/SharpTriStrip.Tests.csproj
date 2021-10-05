@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.9.4" />
+    <PackageReference Include="MSTest.TestAdapter" Version="2.2.3" />
+    <PackageReference Include="MSTest.TestFramework" Version="2.2.3" />
+    <PackageReference Include="coverlet.collector" Version="3.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SharpTriStrip\SharpTriStrip.csproj" />
+  </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="if not exist &quot;$(TargetDir)TriStripTests&quot; mkdir &quot;$(TargetDir)TriStripTests&quot;&#xD;&#xA;copy &quot;$(SolutionDir)TriStripTests\TriStripTest_1.txt&quot; &quot;$(TargetDir)TriStripTests\TriStripTest_1.txt&quot;&#xD;&#xA;copy &quot;$(SolutionDir)TriStripTests\TriStripTest_2.txt&quot; &quot;$(TargetDir)TriStripTests\TriStripTest_2.txt&quot;&#xD;&#xA;copy &quot;$(SolutionDir)TriStripTests\TriStripTest_3.txt&quot; &quot;$(TargetDir)TriStripTests\TriStripTest_3.txt&quot;&#xD;&#xA;copy &quot;$(SolutionDir)TriStripTests\TriStripTest_4.txt&quot; &quot;$(TargetDir)TriStripTests\TriStripTest_4.txt&quot;&#xD;&#xA;copy &quot;$(SolutionDir)TriStripTests\TriStripTest_5.txt&quot; &quot;$(TargetDir)TriStripTests\TriStripTest_5.txt&quot;&#xD;&#xA;copy &quot;$(SolutionDir)TriStripTests\TriStripTest_6.txt&quot; &quot;$(TargetDir)TriStripTests\TriStripTest_6.txt&quot;&#xD;&#xA;copy &quot;$(SolutionDir)TriStripTests\TriStripTest_7.txt&quot; &quot;$(TargetDir)TriStripTests\TriStripTest_7.txt&quot;&#xD;&#xA;copy &quot;$(SolutionDir)TriStripTests\TriStripTest_8.txt&quot; &quot;$(TargetDir)TriStripTests\TriStripTest_8.txt&quot;&#xD;&#xA;" />
+  </Target>
+
+</Project>
